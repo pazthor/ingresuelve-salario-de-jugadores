@@ -7,4 +7,5 @@ Esté proyecto fue desarrollado con el *lenguaje de  programación Go*, usando l
 `go mod tidy` 
 
 ### Como se ejecuta
+Desde la linea de comando, sobre el directorio donde se encuentra el  archivo main.go, ejecutar lo  siguiente:
 `go run  main.go calc-salario`
