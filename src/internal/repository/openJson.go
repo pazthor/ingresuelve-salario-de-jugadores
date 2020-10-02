@@ -35,3 +35,31 @@ func GetJugadores() *domain.Jugadores {
 
 	return jugadores
 }
+
+//SaveToFileJSON writting
+func SaveToFileJSON(equipo *domain.Jugadores) {
+
+	j := convertToJSON(*equipo)
+	f, err := os.Create("./data/output.json")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+	newBytes := []byte(j)
+	_, errW := f.Write(newBytes)
+	if errW != nil {
+		fmt.Println(errW)
+	}
+
+}
+
+func convertToJSON(j domain.Jugadores) (jsonString string) {
+	jsonTmp, err := json.Marshal(&j)
+	if err != nil {
+		fmt.Println(err)
+	}
+	jsonString = string(jsonTmp)
+
+	return jsonString
+
+}
