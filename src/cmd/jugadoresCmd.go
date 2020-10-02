@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"../internal/service"
 	"github.com/spf13/cobra"
 )
 
@@ -24,6 +25,7 @@ func InitResuelveCmd() *cobra.Command {
 
 func runBeersFn() CobraFn {
 	return func(cmd *cobra.Command, args []string) {
-		fmt.Println("hello")
+		calc := service.Proceso()
+		fmt.Println(calc)
 	}
 }
