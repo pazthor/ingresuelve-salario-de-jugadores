@@ -10,6 +10,8 @@ func Proceso() *domain.Jugadores {
 	equipo := repository.GetJugadores()
 	equipo.CalcularTotalDeGoles()
 	equipo.CalcularSalariosPorJugador()
+	repository.SaveToFileJSON(equipo)
+	equipo.ShowSalarios()
 
 	return equipo
 
