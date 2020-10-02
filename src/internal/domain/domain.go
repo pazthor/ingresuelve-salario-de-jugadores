@@ -1,5 +1,7 @@
 package domain
 
+import "fmt"
+
 // Jugadores struct which contains
 // an array of users
 type Jugadores struct {
@@ -51,6 +53,14 @@ func (jugadores *Jugadores) CalcularSalariosPorJugador() {
 		bonoPorEquipo := jugadores.Jugadores[i].CalcularBonoPorEquipo(float32(jugadores.TotalGolesMetidos), totalDeGolesEstimados, jugadores.getPesoBonoPorEquipo())
 		jugadores.Jugadores[i].SueldoCompleto = jugadores.Jugadores[i].calcularSueldoCompleto(bonoPorEquipo)
 
+	}
+}
+
+//ShowSalarios muestra  el sueldo completo de cada jugador
+func (jugadores *Jugadores) ShowSalarios() {
+
+	for i, v := range jugadores.Jugadores {
+		fmt.Printf("%d: El sueldo completo de %s  es %.2f\n", i, v.Nombre, v.SueldoCompleto)
 	}
 }
 
